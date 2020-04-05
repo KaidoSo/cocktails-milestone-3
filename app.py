@@ -1,12 +1,12 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from forms import RegistrationForm, LoginForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = ''
+app.config['SECRET_KEY'] = 'c37adb1952ee82a1f6ecc2cd1bf10742'
 app.config["MONGO_DBNAME"] = 'cocktails'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-9apc7.mongodb.net/cocktails?retryWrites=true&w=majority'
 
@@ -22,6 +22,9 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', '_success_')
+        return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
