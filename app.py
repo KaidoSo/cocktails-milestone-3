@@ -17,7 +17,11 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("home.html", recipes=mongo.db.recipes.find())
+    return render_template('home.html', recipes=mongo.db.recipes.find())
+
+#@app.route('/drinks')
+#def home():
+#    return render_template('drinks.html', title='Drinks')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -30,6 +34,12 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@drinks.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password!', 'danger')
     return render_template('login.html', title='Log In', form=form)
 
 if __name__ == '__main__':
