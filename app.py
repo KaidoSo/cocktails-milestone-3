@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, flash
 from forms import RegistrationForm, LoginForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import bcrypt
 
 app = Flask(__name__)
 
@@ -17,18 +18,30 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
+    if 'username' in session:
+        return 'You are logged in as ' + session['username']
+    
     return render_template('home.html', recipes=mongo.db.recipes.find())
 
-#@app.route('/drinks')
-#def home():
-#    return render_template('drinks.html', title='Drinks')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', '_success_')
-        return redirect(url_for('home'))
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert_one({'name': request.form['username'],
+                            'password': hash_pass,
+                            'email': request.form['email']})
+            session['username'] = request.form['username']
+            flash(f'Account created for {form.username.data}!', '_success_')
+            return redirect(url_for('home'))
+            flash(f'This username already exists!')        
+        return redirect(url_for('register'))
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
