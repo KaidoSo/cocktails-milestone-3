@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, flash
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from forms import RegistrationForm, LoginForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -18,9 +18,6 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    if 'username' in session:
-        return 'You are logged in as ' + session['username']
-    
     return render_template('home.html', recipes=mongo.db.recipes.find())
 
 
@@ -35,7 +32,7 @@ def register():
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'name': request.form['username'],
-                            'password': hash_pass,
+                            'password': hashpass,
                             'email': request.form['email']})
             session['username'] = request.form['username']
             flash(f'Account created for {form.username.data}!', '_success_')
@@ -46,14 +43,29 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('home', title="Log In"))
+
     form = LoginForm()
+
     if form.validate_on_submit():
-        if form.email.data == 'admin@drinks.com' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
-            return redirect(url_for('home'))
-        else:
-            flash('Login Unsuccessful. Please check username and password!', 'danger')
+        users = mongo.db.users
+        db_user = users.find_one({'email': request.form['email']})
+        
+        if db_user:
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'),
+                            db_user['password']) == db_user['password']:
+                session['email'] = request.form['email']
+                session['logged_in'] = True
+                return redirect(url_for('home', title="Sign In", form=form))
+        flash('Login Unsuccessful. Please check email and password!', 'danger')
     return render_template('login.html', title='Log In', form=form)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
