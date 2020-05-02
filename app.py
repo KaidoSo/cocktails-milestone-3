@@ -43,21 +43,24 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if session.get('logged_in'):
-        if session['logged_in'] is True:
+    if 'logged_in' in session:
+        if session['logged_in'] == True:
             return redirect(url_for('home', title="Log In"))
 
     form = LoginForm()
 
     if form.validate_on_submit():
+        print("Hello")
         users = mongo.db.users
         db_user = users.find_one({'email': request.form['email']})
+        print(db_user)
         
         if db_user:
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),
                             db_user['password']) == db_user['password']:
                 session['email'] = request.form['email']
                 session['logged_in'] = True
+                flash(f'Welcome {form.email.data}!', '_success_')
                 return redirect(url_for('home', title="Sign In", form=form))
         flash('Login Unsuccessful. Please check email and password!', 'danger')
     return render_template('login.html', title='Log In', form=form)
