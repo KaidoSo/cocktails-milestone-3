@@ -52,17 +52,17 @@ def login():
     if form.validate_on_submit():
         print("Hello")
         users = mongo.db.users
-        db_user = users.find_one({'email': request.form['email']})
+        db_user = users.find_one({'name': request.form['username']})
         print(db_user)
         
         if db_user:
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),
                             db_user['password']) == db_user['password']:
-                session['email'] = request.form['email']
+                session['username'] = request.form['username']
                 session['logged_in'] = True
-                flash(f'Welcome {form.email.data}!', '_success_')
-                return redirect(url_for('home', title="Sign In", form=form))
-        flash('Login Unsuccessful. Please check email and password!', 'danger')
+                flash(f'Welcome {form.username.data}!', '_success_')
+                return redirect(url_for('home', title="Log In", form=form))
+        flash('Login Unsuccessful. Please check username and password!', 'danger')
     return render_template('login.html', title='Log In', form=form)
 
 @app.route('/logout')
