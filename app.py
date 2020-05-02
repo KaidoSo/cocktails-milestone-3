@@ -35,9 +35,9 @@ def register():
                             'password': hashpass,
                             'email': request.form['email']})
             session['username'] = request.form['username']
-            flash(f'Account created for {form.username.data}!', '_success_')
+            flash(f'Account created for {form.username.data}!', 'success')
             return redirect(url_for('home'))
-            flash(f'This username already exists!')        
+        flash('This username is taken. Please choose a different one.', 'danger')        
         return redirect(url_for('register'))
     return render_template('register.html', title='Register', form=form)
 
@@ -60,7 +60,7 @@ def login():
                             db_user['password']) == db_user['password']:
                 session['username'] = request.form['username']
                 session['logged_in'] = True
-                flash(f'Welcome {form.username.data}!', '_success_')
+                flash(f'Welcome, {form.username.data}!', 'success')
                 return redirect(url_for('home', title="Log In", form=form))
         flash('Login Unsuccessful. Please check username and password!', 'danger')
     return render_template('login.html', title='Log In', form=form)
