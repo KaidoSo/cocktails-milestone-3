@@ -4,13 +4,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <link rel="stylesheet" href="../static/css/style.css" type="text/css">
-        <link rel="shortcut icon" href="../static/images/drinkus.ico" type="image/x-icon">
-        {% if title %}
-            <title>DrinkUs - {{ title }}</title>
-        {% else %}
-            <title>DrinkUs</title>
-        {% endif %}
+        <link rel="icon" href="{{ url_for('static', filename='images/drinkus.ico') }}" type="image/x-icon">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <title>DrinkUs{% if title %} - {{ title }}{% endif %}</title>
     </head>
 
     <body>
@@ -41,7 +37,7 @@
         </header>
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
                             {% for category, message in messages %}
@@ -54,9 +50,6 @@
                     {% block content %}
         
                     {% endblock %}                
-                </div>
-                <div class="col-md-6">
-
                 </div>
             </div>
         </main>

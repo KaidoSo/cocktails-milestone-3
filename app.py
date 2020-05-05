@@ -70,6 +70,11 @@ def logout():
     session.clear()
     return redirect(url_for('home'))
 
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+    recipe_db = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    return render_template('drink.html', recipe=recipe_db)
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=int(os.environ.get('PORT')),
