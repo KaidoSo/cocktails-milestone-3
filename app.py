@@ -75,6 +75,21 @@ def recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     return render_template('drink.html', recipe=recipe_db)
 
+@app.route('/create', methods=['GET', 'POST'])
+def create():
+    form = CreateForm(request.form)
+    if form.validate_on_submit():
+        recipes_db = mongo.db.recipes
+        recipes_db.insert_one({
+            'name': request.form['name'],
+            'user': session['username'],
+            'image': request.form['image'],
+            'ingredients': request.form['ingredients'],
+            'instructions': request.form['image']
+        })
+        return redirect(url_for('home', title='New Drink Created'))
+    return render_template('create.html', title='Create a Drink', form=form)
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=int(os.environ.get('PORT')),
