@@ -1,8 +1,10 @@
 {% extends 'base.html'%}
 {% block content %}
+        <h1 class="text-center">Latest Drinks</h1>
         {% for recipe in recipes %}
-            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{recipe.name}}</a>
-            {{recipe.ingredients}}
-            {{recipe.instructions}}
+            <div class="container-home">
+                <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}">
+                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
+            </div>
         {% endfor %}
 {% endblock content %}
