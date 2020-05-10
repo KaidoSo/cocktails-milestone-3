@@ -85,10 +85,33 @@ def create():
             'user': session['username'],
             'image': request.form['image'],
             'ingredients': request.form['ingredients'],
-            'instructions': request.form['image']
+            'instructions': request.form['instructions']
         })
         return redirect(url_for('home', title='New Drink Created'))
     return render_template('create.html', title='Create a Drink', form=form)
+
+@app.route('/edit/<recipe_id>', methods=['GET', 'POST'])
+def edit(recipe_id):
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    if request.method == 'GET':
+        form = EditForm(data=recipe_db)
+        return render_template('edit.html', recipe=recipe_db, form=form)
+    form = EditForm(request.form)
+    if form.validate_on_submit():
+        recipes_db = mongo.db.recipes
+        recipes_db.update_one({
+            '_id': ObjectId(recipe_id),
+        }, {
+            '$set': {
+            'name': request.form['name'],
+            'user': session['username'],
+            'image': request.form['image'],
+            'ingredients': request.form['ingredients'],
+            'instructions': request.form['instructions'],
+            }
+        })
+        return redirect(url_for('home', title='Drink Edited'))
+    return render_template('edit.html', recipe=recipe_db, form=form)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

@@ -31,7 +31,7 @@ class EditForm(FlaskForm):
     image = StringField('Image Link (full path)', validators=[DataRequired()])
     ingredients = TextAreaField('Ingredients(one per line)', validators=[DataRequired()])
     instructions = TextAreaField('Instructions', validators=[DataRequired()])
-    submit = SubmitField('Add Drink')
+    submit = SubmitField('Edit Drink')
 
 class Delete(FlaskForm):
     title = StringField('Name', validators=[DataRequired()])
