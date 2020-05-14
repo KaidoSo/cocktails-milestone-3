@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, flash, session
-from forms import RegistrationForm, LoginForm, CreateForm, EditForm
+from forms import RegistrationForm, LoginForm, CreateForm, EditForm, DeleteForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
@@ -112,6 +112,21 @@ def edit(recipe_id):
         })
         return redirect(url_for('home', title='Drink Edited'))
     return render_template('edit.html', recipe=recipe_db, form=form)
+
+@app.route('/delete/<recipe_id>', methods=['GET', 'POST'])
+def delete(recipe_id):
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    if request.method == 'GET':
+        form = DeleteForm(data=recipe_db)
+        return render_template('delete.html', title='Delete Drink', form=form)
+    form = DeleteForm(request.form)
+    if form.validate_on_submit():
+        recipes_db = mongo.db.recipes
+        recipes_db.delete_one({
+            '_id': ObjectId(recipe_id),
+        })
+        return redirect(url_for('home', title="Drink Deleted"))
+    return render_template('delete.html', title="Delete Drink", recipe=recipe_db, form=form)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

@@ -33,6 +33,6 @@ class EditForm(FlaskForm):
     instructions = TextAreaField('Instructions', validators=[DataRequired()])
     submit = SubmitField('Edit Drink')
 
-class Delete(FlaskForm):
+class DeleteForm(FlaskForm):
     title = StringField('Name', validators=[DataRequired()])
     submit = SubmitField('Delete this Drink')
