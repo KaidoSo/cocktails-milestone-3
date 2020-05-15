@@ -34,5 +34,5 @@ class EditForm(FlaskForm):
     submit = SubmitField('Edit Drink')
 
 class DeleteForm(FlaskForm):
-    title = StringField('Name', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired()])
     submit = SubmitField('Delete this Drink')

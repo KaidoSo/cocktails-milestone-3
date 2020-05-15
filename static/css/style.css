@@ -37,6 +37,9 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     border-radius: 10px;
     border: solid #5f788a 2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home-img {
@@ -46,3 +49,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 16px;
     margin-bottom: 10px;
 }
+
+.user-buttons {
+    margin-left: 3rem;
+}
+
