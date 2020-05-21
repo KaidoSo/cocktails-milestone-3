@@ -3,7 +3,8 @@
         <h1 class="text-center">Latest Drinks</h1>
         {% for recipe in recipes %}
             <div class="container-home">
-                <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}">
+                <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}"
+                    onerror="this.onerror=null;this.src='../static/images/no_image.svg';">
                 <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
             </div>
         {% endfor %}
