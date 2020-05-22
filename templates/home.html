@@ -1,11 +1,13 @@
 {% extends 'base.html'%}
 {% block content %}
-    <div class="row home_headline">
-        <h1>Latest Drinks</h1>
+    <div class="row text-center mb-5">
+        <div class="col">
+            <h1>Latest Drinks</h1>
+        </div>
     </div>
-    <div class="container">
+    <div class="row">
         {% for recipe in recipes %}
-            <div class="container-home">
+            <div class="col">
                 <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}"
                     onerror="this.onerror=null;this.src='../static/images/no_image.svg';">
                 <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
