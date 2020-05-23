@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header .navbar-nav .nav-link.active {
     font-weight: 500;
+    color: red;
 }
 
 .drink-wrap {
@@ -56,10 +57,23 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
 }
 
+.footer-copyright {
+    color: #cbd5db;
+}
+
+.footer-link a{
+    text-decoration: none;
+    color: #cbd5db;
+}
+
+.footer-link a:hover {
+    color: #ffffff;
+}
+
 @media (min-width: 768px) {
-    footer {
-        position: sticky;
-        position: -webkit-sticky;
+    .site-footer {
+        position: fixed;
         bottom: 0;
+        width: 100%;
     }
 }

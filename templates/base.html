@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="icon" href="{{ url_for('static', filename='images/drinkus.ico') }}" type="image/x-icon">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
         <title>DrinkUs{% if title %} - {{ title }}{% endif %}</title>
     </head>
 
@@ -54,12 +55,13 @@
                 </div>
             </div>
         </main>
-        <footer class="fixed-bottom py-3 bg-steel mt-3">
-            <div class="row text-center">
+        <footer class="site-footer py-3 bg-steel mt-3">
+            <div class="row footer-copyright text-center">
                     <div class="col-12 col-md-6">
                         © 2020 - milestone project by KaidoSo
                     </div>
-                    <div class="col-12 col-md-6 footer-github"><a href="https://github.com/KaidoSo/cocktails-milestone-3" target="_blank">GitHub
+                    <div class="col-12 col-md-6 footer-link">
+                        <a href="https://github.com/KaidoSo/cocktails-milestone-3" target="_blank">GitHub
                         <i class="fab fa-github"></i></a>
                     </div>
             </div>
