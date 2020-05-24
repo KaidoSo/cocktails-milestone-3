@@ -11,6 +11,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #444444;
 }
 
+h3 {
+    text-decoration: underline;
+}
 .bg-steel{
     background-color: #5f788a;
 }
@@ -25,7 +28,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header .navbar-nav .nav-link.active {
     font-weight: 500;
-    color: red;
 }
 
 .drink-wrap {
@@ -70,10 +72,14 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
 }
 
+.site-footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+}
+
 @media (min-width: 768px) {
-    .site-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+    .recipe-name: {
+        font-size: 10px;
     }
 }

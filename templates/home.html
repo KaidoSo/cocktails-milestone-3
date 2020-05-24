@@ -10,7 +10,7 @@
             <div class="col">
                 <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}"
                     onerror="this.onerror=null;this.src='../static/images/no_image.svg';">
-                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
+                <a class="drink-name text-center" href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
             </div>
         {% endfor %}
     </div>
