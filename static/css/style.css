@@ -35,8 +35,7 @@ h3 {
     align-content: center;
     display: block;
     margin-left: auto;
-    margin-right: auto
-    
+    margin-right: auto    
 }
 
 .drink-img {
@@ -53,6 +52,14 @@ h3 {
     border: solid #5f788a 2px;
     margin-right: 16px;
     margin-bottom: 10px;
+}
+
+.home-link a{
+    text-decoration: none;
+}
+
+.home-link a:hover>.home-img {    
+    border: solid #444444 2px;
 }
 
 .user-buttons {
@@ -72,14 +79,9 @@ h3 {
     color: #ffffff;
 }
 
-.site-footer {
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-}
-
 @media (min-width: 768px) {
-    .recipe-name: {
-        font-size: 10px;
-    }
+    .site-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
 }

@@ -7,10 +7,12 @@
     </div>
     <div class="row">
         {% for recipe in recipes %}
-            <div class="col">
-                <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}"
-                    onerror="this.onerror=null;this.src='../static/images/no_image.svg';">
-                <a class="drink-name text-center" href="{{ url_for('recipe', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
+            <div class="col home-link">
+                <a class="center" href="{{ url_for('recipe', recipe_id=recipe._id) }}">
+                    <img class="rounded-circle home-img" src="{{ recipe.image }}" alt="{{ recipe.name }}"
+                        onerror="this.onerror=null;this.src='../static/images/no_image.svg';">
+                    <h5 class="home-name">{{ recipe.name }}</h5>
+                </a>
             </div>
         {% endfor %}
     </div>
