@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="icon" href="{{ url_for('static', filename='images/drinkus.ico') }}" type="image/x-icon">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <title>DrinkUs{% if title %} - {{ title }}{% endif %}</title>
     </head>
 
@@ -27,17 +27,18 @@
                                 <a id="home" class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
                             {% if 'username' in session %}
                                 <a id="create" class="nav-item nav-link" href="{{ url_for('create') }}">Create</a>
-                                <a id="logout"class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                                <a id="logout" class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                             {% else %}
-                                <a id="login"class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                                <a id="register"class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                                <a id="login" class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                                <a id="register" class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
                             {% endif %}
                         </div>
                     </div>
                 </div>
             </nav>
         </header>
-        <main role="main" class="container">
+
+        <main class="container container-main">
             <div class="row">
                 <div class="col-md-12 main_content">
                     {% with messages = get_flashed_messages(with_categories=true) %}
