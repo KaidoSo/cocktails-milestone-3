@@ -83,9 +83,9 @@ As a side goal, I have left room for expansion once I have developed my skills f
 
 Wireframes were built in the early stages of development to get a rough outline of the structure needed for the planned features of the site. These can be viewed below:
 
-- [Desktop](https://github.com/)
-- [Tablet](#)
-- [Mobile](https://github.com/)
+- [Desktop]("https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes1.png")
+- [Desktop Drink View]("https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes2.png")
+- [Mobile]("https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes3.png")
 
 ### Design Choices
 
@@ -192,14 +192,14 @@ Testing for end user experience was done by myself.
     - **Result:** Function detected errors and corrected the issue. All sibling elements then rendered correctly around the broken image.
 
 2. **Any user could delete/edit**
-    - **Issue:** Buttons to edit and delete drinks was available to all users regardless if they added the item or not.
+    - **Issue:** Buttons to edit and delete drinks were available to all users regardless if they added the item or not.
     - **Solution:** Impliment user specific buttons, and encrypted logon system. 
     - **Result:** Users are now only presented with buttons that apply to their own drinks, preventing others from deleteing their creations, and preventing a user stumbling across the site, and removing the entire database.
 
 ### Known Bugs
 
 - **Drinks List on Mobile**
-In Mobile view the long names for drinks may look a bit off my name crawling up next to the image of the drink. I will look into fixing that in the future.
+In Mobile view the long names for drinks may look a bit off by name crawling up next to the image of the drink. I will look into fixing that in the future.
     
 
 
@@ -283,7 +283,7 @@ For help on cloning a repository on Github, please click [here](https://help.git
 
 ### Acknowledgements
 
-Code for structure and layout was partially inspired by the [Corey Schafer YouTube Channel](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1)
+Code for structure and layout was partially inspired by the [Corey Schafer YouTube Channel](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g)
 
 #### Guidance
 
