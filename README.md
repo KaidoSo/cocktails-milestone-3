@@ -11,6 +11,7 @@ Functionality has been added to allow viewing, creating, editing and deleting re
 <br><br>
 
 <h1>Table of Contents</h1>
+
 1. [**UX**](#ux)
     - [**Project Purpose**](#project-purpose)
     - [**User Stories**](#user-stories)
