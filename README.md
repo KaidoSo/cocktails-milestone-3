@@ -23,15 +23,15 @@ Functionality has been added to allow viewing, creating, editing and deleting re
         - [Context Sensitive Buttons](#context-sensitive-buttons)
         - [Error Handling](#error-handling)
     - [**Features Left to Implement**](#features-left-to-implement)
-        - [**Favourites**](#favourites)
-        - [**Search**](#search)
-        - [**Pagination**](#pagination)
+        - [Favourites](#favourites)
+        - [Search](#search)
+        - [Pagination](#pagination)
 3. [**Information Architecture**](#information-architecture)
     - [**Database Choice**](#database-choise)
     - [**Data Types**](#data-types)
     - [**Collection Structure**](#collection-structure)
-        - [**Users Collection**](#users-collection)
-        - [**Recipes Collection**](#recipes-collection)
+        - [Users Collection](#users-collection)
+        - [Recipes Collection](#recipes-collection)
 4. [**Bugs**](#bugs)
     - [**Bugs During Development**](#bugs-during-development)
     - [**Known Bugs**](#known-bugs)
@@ -55,6 +55,7 @@ The main objective in creating the DrinkUs application is to provide the user wi
 This application is designed with adventurous drinkers in mind who require an easy way to explore drinks menu based on what they might have on hand, or discover a new drink they may not have tried before.
 As a side goal, I have left room for expansion once I have developed my skills further. I would like to develop this into a more viable website with added features as outlined below in the [**Features Left to Implement**](#features-left-to-implement).
 
+## UX
 
 #### Project Purpose
 
