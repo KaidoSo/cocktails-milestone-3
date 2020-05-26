@@ -83,9 +83,9 @@ As a side goal, I have left room for expansion once I have developed my skills f
 
 Wireframes were built in the early stages of development to get a rough outline of the structure needed for the planned features of the site. These can be viewed below:
 
-- [Desktop]("https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes1.png")
-- [Desktop Drink View]("https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes2.png")
-- [Mobile]("https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes3.png")
+- [Desktop](https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes1.png)
+- [Desktop Drink View](https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes2.png)
+- [Mobile](https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/Wireframes3.png)
 
 ### Design Choices
 
