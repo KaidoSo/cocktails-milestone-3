@@ -3,7 +3,7 @@ Data Centric Development - Milestone Project 3 - DrinkUs by Kaido Soomlais
 </h1>
 
 <div align="center">
-    <img src="#" href="#" target="_blank" alt="" border="0">
+    <img src="https://raw.githubusercontent.com/KaidoSo/cocktails-milestone-3/master/static/images/drinkus-image.png" href="https://kaidoso-drinkus.herokuapp.com/" target="_blank" alt="" border="0">
 </div>
 
 [DrinkUs](https://kaidoso-drinkus.herokuapp.com/) is a website created for storing various cocktail recipes in MongoDB. It has been made so that user can easily read & navigate around the website.
@@ -36,7 +36,7 @@ Functionality has been added to allow viewing, creating, editing and deleting re
 4. [**Bugs**](#bugs)
     - [**Bugs During Development**](#bugs-during-development)
     - [**Known Bugs**](#known-bugs)
-5. [**Technologies Used](#technologies-used)
+5. [**Technologies Used**](#technologies-used)
     - [**Languages**](#languages)
     - [**Frameworks/Libraries**](#frameworks-libraries)
     - [**Software**](#software)
