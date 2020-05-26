@@ -4,6 +4,7 @@
     <div class="row pt-3">
         <div class="drink-wrap col-12 col-md-6">
             <h1 class="mt-2 text-center">{{ recipe.name }}</h1>
+            <!-- drink image and when url is not 404, replace default with own image from static -->
             <img class="drink-img" src="{{ recipe.image }}" alt="{{ recipe.name }}"
                 onerror="this.onerror=null;this.src='../static/images/no_image.svg';">
             <p>Drink added by: {{ recipe.user }}</p>
@@ -14,6 +15,7 @@
             <br>
             <h3 class="text-center">Instructions</h3>
             <p style="white-space: pre-wrap;">{{ recipe.instructions }}</p>
+            <!-- if user has created the recipe, Edit and Delete buttons will display -->
             {% if session['username'] == recipe.user %}
             <div class="row  user-buttons">
                 <div class="col-12">
