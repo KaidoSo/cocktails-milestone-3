@@ -30,8 +30,8 @@ Functionality has been added to allow viewing, creating, editing and deleting re
         - [Forgot Password](#forgot-password)
 3. [**Testing**](#testing)
     - [**Tools and Methods For Testing**](#tools-and-methods-for-testing)
-        -[HTML]
-        -[CSS]
+        - [HTML](#html)
+        - [CSS](#css)
 4. [**Information Architecture**](#information-architecture)
     - [**Database Choice**](#database-choise)
     - [**Data Types**](#data-types)
