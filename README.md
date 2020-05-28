@@ -168,20 +168,20 @@ Both virtual and real device tests were run to test and access the functionality
 a high priority requirement for this project, the app responsiveness was also tested by resizing the window. Below is a full list of devices used in the testing phase:
 
 Simulated with Chrome DevTools:
-Moto G4
-Galaxy S5
-Pixel 2
-Pixel 2 XL
-iPhone 5/SE
-iPhone 6/7/8
-iPhone 6/7/8 Plus
-iPhone X
-iPad
+Moto G4,
+Galaxy S5,
+Pixel 2,
+Pixel 2 XL,
+iPhone 5/SE,
+iPhone 6/7/8,
+iPhone 6/7/8 Plus,
+iPhone X,
+iPad,
 iPad Pro
 
 Physical Devices:
-Samsung Galaxy S8
-Sony Xperia XZ1 Compact
+Samsung Galaxy S8,
+Sony Xperia XZ1 Compact,
 Lenovo ThinkBook M-14 IML
 
 Tested Sections HTML CSS:
@@ -225,7 +225,7 @@ DrinkUs relies on two connected database collections:
 | Drink ID            | _id            | None                 | ObjectId  |
 | Drink Name          | name	       | text                 | String    |
 | Created By Username | user           | None                 | String    |
-| Drink Image URL     | drinkImage     | url                  | String    |
+| Drink Image URL     | image          | url                  | String    |
 | Ingredients         | ingredients    | textarea             | String    |
 | Instructions        | instructions   | textarea             | String    |
 
@@ -248,7 +248,7 @@ Testing for end user experience was done by myself.
 
 ### Known Bugs
 
-- **Drinks List on Mobile**
+- **Home Page on Mobile**
 In Mobile view the long names for drinks may look a bit off by name crawling up next to the image of the drink. I will look into fixing that in the future when implementing pagination and possibly rehauling the whole home page view.
 
 
