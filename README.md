@@ -324,8 +324,6 @@ To deploy this page to [Heroku](https://www.heroku.com/) from its [GitHub reposi
  - [Python](https://www.python.org/)
  - An account with [MongoDB Atlas](https://www.mongodb.com/) or a local instance of MongoDB. Please refer to the [MongoDB Documentation](https://docs.atlas.mongodb.com/) for more help.
 
-To clone this project from GitHub:
-
 For help on cloning a repository on Github, please click [here](https://help.github.com/en/articles/cloning-a-repository).
 
 
