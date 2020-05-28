@@ -27,27 +27,32 @@ Functionality has been added to allow viewing, creating, editing and deleting re
         - [Favourites](#favourites)
         - [Search](#search)
         - [Pagination](#pagination)
-3. [**Information Architecture**](#information-architecture)
+        - [Forgot Password](#forgot-password)
+3. [**Testing**](#testing)
+    - [**Tools and Methods For Testing**](#tools-and-methods-for-testing)
+        -[HTML]
+        -[CSS]
+4. [**Information Architecture**](#information-architecture)
     - [**Database Choice**](#database-choise)
     - [**Data Types**](#data-types)
     - [**Collection Structure**](#collection-structure)
         - [Users Collection](#users-collection)
         - [Recipes Collection](#recipes-collection)
-4. [**Bugs**](#bugs)
+5. [**Bugs**](#bugs)
     - [**Bugs During Development**](#bugs-during-development)
     - [**Known Bugs**](#known-bugs)
-5. [**Technologies Used**](#technologies-used)
+6. [**Technologies Used**](#technologies-used)
     - [**Languages**](#languages)
     - [**Frameworks/Libraries**](#frameworks-libraries)
     - [**Software**](#software)
     - [**Additional Recources**](#additional-recources)
-6. [**Deployment**](#deployment)
+7. [**Deployment**](#deployment)
     - [**Deployment to Heroku**](#deployment-to-heroku)
     - [**Running this project locally**](#running-this-project-locally)
-7. [**Credits**](#credits)
+8. [**Credits**](#credits)
     - [**Acknowledgements**](#acknowledgements)
     - [**Guidance**](#guidance)
-8. [**Disclaimer**](#disclaimer)
+9. [**Disclaimer**](#disclaimer)
 
 
 
@@ -55,6 +60,7 @@ Functionality has been added to allow viewing, creating, editing and deleting re
 The main objective in creating the DrinkUs application is to provide the user with a simple to use repository of recipes for cocktail and drink making. It also provides an ever growing database of cocktails, drinks, and ingredients for the users to browse through and add to.
 This application is designed with adventurous drinkers in mind who require an easy way to explore drinks menu based on what they might have on hand, or discover a new drink they may not have tried before.
 As a side goal, I have left room for expansion once I have developed my skills further. I would like to develop this into a more viable website with added features as outlined below in the [**Features Left to Implement**](#features-left-to-implement).
+
 
 ## UX
 
@@ -105,6 +111,7 @@ The main approach to this application is made to easy to maintain, and easy to u
 - **Bootstrap** framework was used to keep the site simple, only displaying relevant information, without drawing attention away from the content.
 - **Buttons** have been styled with bootstrap & colors have been picked using bootstrap color shceme.
 
+
 ## Features
 
 ### Existing Features
@@ -140,13 +147,56 @@ A search function for user to enter keywords and finding drinks based on them.
 
 Current website would get very cluttered without pages. I want to add that option for a user to view different pages of recipes.
 
+4. **Forgot Password**
+
+Current link doesn't have a function behind it.
+
+
+## Testing
+
+### Tools and Methods Used for Testing
+
+- HTML
+
+  - [The W3C Markup Validation Service](https://validator.w3.org/)
+
+- CSS
+
+  - [The W3C Markup Validation Service](https://jigsaw.w3.org/css-validator)
+
+Both virtual and real device tests were run to test and access the functionality of the app and identify any potential errors. Although the app UI aesthetics are not 
+a high priority requirement for this project, the app responsiveness was also tested by resizing the window. Below is a full list of devices used in the testing phase:
+
+Simulated with Chrome DevTools:
+Moto G4
+Galaxy S5
+Pixel 2
+Pixel 2 XL
+iPhone 5/SE
+iPhone 6/7/8
+iPhone 6/7/8 Plus
+iPhone X
+iPad
+iPad Pro
+
+Physical Devices:
+Samsung Galaxy S8
+Sony Xperia XZ1 Compact
+Lenovo ThinkBook M-14 IML
+
+Tested Sections HTML CSS:
+ - Links to navigate within website and code authors GitHub repository.
+ - Checked button sizes so, they were responsive and large enough to be clicked.
+ - Spell checked all text content.
+ - HTML and CSS validation via w3.org (only Bad Value errors with {url_for} links remained).
+ - Created several users and added, edited and deleted cocktails with and without pictures, with and without intentional input errors during filling out the forms.
+
 
 ## Information Architecture
 
 ### Database Choice
 
 A NoSQL database was chosen, MongoDB in particular to suit the needs of storing user information and recipes.
-
 
 ### Data Types
 
@@ -159,7 +209,7 @@ The types of data in this project stored in MongoDB are:
 
 DrinkUs relies on two connected database collections:
 
-#### Users Collection
+### Users Collection
 | Title         | Key in db | form validation type | Data type |
 |---------------|-----------|----------------------|-----------|
 | Username ID   | _id       | text, Length         | ObjectId  |
@@ -169,7 +219,7 @@ DrinkUs relies on two connected database collections:
 
 - Passwords are entered as string, but stored as binary after encryption. The same process is carried our when logging in. The supplied password is encrypted using the supplied key in the password section, and checked to match the existing encrypted binary password.
 
-#### Recipes Collection
+### Recipes Collection
 | Title               | Key in db      | form validation type | Data type |
 |---------------------|----------------|----------------------|-----------|
 | Drink ID            | _id            | None                 | ObjectId  |
@@ -199,8 +249,7 @@ Testing for end user experience was done by myself.
 ### Known Bugs
 
 - **Drinks List on Mobile**
-In Mobile view the long names for drinks may look a bit off by name crawling up next to the image of the drink. I will look into fixing that in the future.
-    
+In Mobile view the long names for drinks may look a bit off by name crawling up next to the image of the drink. I will look into fixing that in the future when implementing pagination and possibly rehauling the whole home page view.
 
 
 ## Technologies Used
@@ -241,6 +290,7 @@ In Mobile view the long names for drinks may look a bit off by name crawling up 
 - [HTML Validator](https://validator.w3.org/)
     - This project utilised the HTML validator provided by W3C to check and correct any issues in my current HTML code.
 
+
 ## Deployment
 
 This project was developed using [GitPod](https://www.gitpod.io/) , [Python](https://www.python.org/) and committed to repository and pushed to [GitHub](https://github.com/KaidoSo/cocktails-milestone-3) using Git options in GitPod.
@@ -274,10 +324,10 @@ To deploy this page to [Heroku](https://www.heroku.com/) from its [GitHub reposi
  - [Python](https://www.python.org/)
  - An account with [MongoDB Atlas](https://www.mongodb.com/) or a local instance of MongoDB. Please refer to the [MongoDB Documentation](https://docs.atlas.mongodb.com/) for more help.
 
-
 To clone this project from GitHub:
 
 For help on cloning a repository on Github, please click [here](https://help.github.com/en/articles/cloning-a-repository).
+
 
 ## Credits
 
@@ -287,7 +337,8 @@ Code for structure and layout was partially inspired by the [Corey Schafer YouTu
 
 #### Guidance
 
-I received some assistance on this project from Tutor group in Code Institute when getting stuck on certain aspects of the site and unable to reach solution on my own.
+I received some advice on tehcnical aspects with this project from Tutor group in Code Institute when getting stuck and unable to reach solution on my own.
+Mentored by Spencer Barriball.
 
 
 ## Disclaimer

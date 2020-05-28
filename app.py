@@ -7,9 +7,9 @@ import bcrypt
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'c37adb1952ee82a1f6ecc2cd1bf10742'
+app.config['SECRET_KEY'] = 'SECRET'
 app.config["MONGO_DBNAME"] = 'cocktails'
-app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-9apc7.mongodb.net/cocktails?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = 'MONGO_URI'
 
 mongo = PyMongo(app)
 
