@@ -7,19 +7,16 @@ import bcrypt
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'SECRET'
-app.config["MONGO_DBNAME"] = 'cocktails'
-app.config["MONGO_URI"] = 'MONGO_URI'
+app.config['SECRET_KEY'] = os.environ.get('SECRET')
+app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
-
-
 
 @app.route('/')
 @app.route('/home')
 def home():
     return render_template('home.html', recipes=mongo.db.recipes.find())
-
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -46,6 +43,7 @@ def register():
         flash('This username is taken. Please choose a different one.', 'danger')        
         return redirect(url_for('register'))
     return render_template('register.html', title='Register', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -76,17 +74,20 @@ def login():
         flash('Login Unsuccessful. Please check username and password!', 'danger')
     return render_template('login.html', title='Log In', form=form)
 
+
 @app.route('/logout')
 def logout():
     # clears the session and redirects to home page
     session.clear()
     return redirect(url_for('home'))
 
+
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     # displays full drink recipe
     recipe_db = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     return render_template('drink.html', recipe=recipe_db)
+
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():
@@ -105,6 +106,7 @@ def create():
         })
         return redirect(url_for('home', title='New Drink Created'))
     return render_template('create.html', title='Create a Drink', form=form)
+
 
 @app.route('/edit/<recipe_id>', methods=['GET', 'POST'])
 def edit(recipe_id):
@@ -130,6 +132,7 @@ def edit(recipe_id):
         return redirect(url_for('home', title='Drink Edited'))
     return render_template('edit.html', recipe=recipe_db, form=form)
 
+
 @app.route('/delete/<recipe_id>', methods=['GET', 'POST'])
 def delete(recipe_id):
     # allows logged in user to delete a recipe that they've created
@@ -145,6 +148,7 @@ def delete(recipe_id):
         })
         return redirect(url_for('home', title="Drink Deleted"))
     return render_template('delete.html', title="Delete Drink", recipe=recipe_db, form=form)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
